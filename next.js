@@ -3,7 +3,7 @@ var app=express();
 
 app.use(function (req,res,next) {
    console.log('1');
-   next();
+   next(new Error('haha'));
 });
 
 app.use(function (req,res,next) {
