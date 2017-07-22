@@ -11,4 +11,9 @@ app.use(function (req,res,next) {
     res.status(200).end();
 });
 
+app.use(function (err,req,res,next) {
+    console.log(err.stack);
+    res.status(500).send('something  error!');
+});
+
 app.listen(3000);
