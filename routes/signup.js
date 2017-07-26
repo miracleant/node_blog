@@ -5,7 +5,8 @@ var checkNotLogin=require('../middlewares/check').checkLogin;
 
 //GET 注册页面
 router.get('/',checkNotLogin,function(req,res,next){
-    res.send(res.flash());
+    //res.send(res.flash());
+    res.render('signup');
 });
 
 //POST 用户注册
