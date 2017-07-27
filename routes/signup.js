@@ -5,7 +5,8 @@ var sha1=require('sha1');
 var express=require('express');
 var router=express.Router();
 
-var checkNotLogin=require('../middlewares/check').checkLogin;
+var userModel=require('../models/users');
+var checkNotLogin=require('../middlewares/check').checkNotLogin;
 
 //GET 注册页面
 router.get('/',checkNotLogin,function(req,res,next){
@@ -62,6 +63,7 @@ router.post('/',checkNotLogin,function(req,res,next){
     };
 
     //用户信息写入数据库
+    //promise
     UserModel.create(user)
         .then(function(result){
             user=result.ops[0];
