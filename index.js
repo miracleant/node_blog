@@ -68,10 +68,16 @@ app.use(function(req,res,next){
     res.locals.user=req.session.user;
     res.locals.success=req.flash('success').toString;
     res.locals.error=req.flash('error').toString;
-    //next();
+    next();
 });
-
+/*
+app.use(function(err,req,res,next){
+    consolo.log(err.stack);
+    res.status(500).send('something error!');
+});*/
 routes(app);
+
+
 
 app.listen(config.port,function(){
     console.log(`${pkg.name} listening on port ${config.port}`);

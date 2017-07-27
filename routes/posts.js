@@ -6,7 +6,8 @@ var checkLogin=require('../middlewares/check').checkLogin;
 //GET /posts 所有用户的或者特定用户的文章
 // eg: GET /posts?author=xxx
 router.get('/',function (req,res,next) {
-    res.send(req.flash());
+    //res.send(req.flash());
+    res.render('posts');
 });
 
 //POST /posts发表一篇文章
