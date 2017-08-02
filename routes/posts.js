@@ -9,7 +9,16 @@ var checkLogin=require('../middlewares/check').checkLogin;
 // eg: GET /posts?author=xxx
 router.get('/',function (req,res,next) {
     //res.send(req.flash());
-    res.render('posts');
+    //res.render('posts');
+    var author=req.query.author;
+
+    PostModel.getPosts(author)
+        .then(function(posts){
+            res.render('posts',{
+                posts:posts
+            });
+        })
+        .catch(next);
 });
 
 //GET /posts/create 发表文章页

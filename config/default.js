@@ -5,5 +5,5 @@ module.exports={
         key:'huayra',
         maxAge:2592000000
     },
-    mongodb:'mongodb://localhost:27017/huayra'
+    mongodb:'mongodb://localhost:27017/huayraBlog'
 };
